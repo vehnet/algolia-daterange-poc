@@ -6,9 +6,13 @@ const App: React.FC = () => {
   const hits = useHits();
 
   return (
-    <>
-      {JSON.stringify(hits.hits)}
-    </>
+    <div className="container">
+      <strong>Results ({hits.results?.nbHits} items found):</strong>
+
+      <div className="results">
+        {hits.hits.map(row => <div className="row">{JSON.stringify(row)}</div>)}
+      </div>
+    </div>
   )
 };
 
