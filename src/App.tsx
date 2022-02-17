@@ -10,7 +10,9 @@ const App: React.FC = () => {
       <strong>Results ({hits.results?.nbHits} items found):</strong>
 
       <div className="results">
-        {hits.hits.map(row => <div className="row">{JSON.stringify(row)}</div>)}
+        {hits.hits.map(row =>
+          <div className="row">{row.title}, {row.author}. <strong>Created at:</strong> {row.created_at} ({row.created_at_i})</div>
+        )}
       </div>
     </div>
   )
