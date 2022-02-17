@@ -10,9 +10,8 @@ const cx = (
   ...classNames: Array<string | number | boolean | undefined | null>
 ) => classNames.filter(Boolean).join(" ");
 
-// 1 because Fluent UI evaluates 0 as null
-const MIN_TIMESTAMP = 1;
-const MAX_TIMESTAMP = 8640000000000;
+const MIN_TIMESTAMP = 1588284000;
+const MAX_TIMESTAMP = 1590876000;
   
 export const AlgoliaDateRange = (props: AlgoliaDateRangeProps) => {
   const {
