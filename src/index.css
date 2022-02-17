@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+section {
+  padding: 1rem;
+}
+
 .container {
   padding: 2rem;
 }
