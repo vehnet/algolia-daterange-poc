@@ -12,7 +12,6 @@ const App: React.FC = () => {
         <strong>Filters:</strong>
         <AlgoliaDateRange attribute="created_at_i" />
       </section>
-      
       <section>
         <strong>Results ({hits.results?.nbHits} items):</strong>
         <div className="results">
