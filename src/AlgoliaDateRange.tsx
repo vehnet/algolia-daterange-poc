@@ -51,16 +51,16 @@ export const AlgoliaDateRange = (props: AlgoliaDateRangeProps) => {
       >
         <DatePicker
           label={""}
-          value={from ? new Date(from * 1000) : undefined}
+          value={new Date(from * 1000)}
           disabled={!canRefine}
-          onSelectDate={event => event && setRange({ from: event.valueOf() / 1000, to })}
+          onSelectDate={event => setRange({ from: event.valueOf() / 1000, to })}
         />
         <span className="ais-RangeInput-separator"> - </span>
         <DatePicker
           label={""}
-          value={to ? new Date(to * 1000) : undefined}
+          value={new Date(to * 1000)}
           disabled={!canRefine}
-          onSelectDate={event => event && setRange({ from, to: event.valueOf() / 1000 })}
+          onSelectDate={event => setRange({ from, to: event.valueOf() / 1000 })}
         />
         <button className="ais-RangeInput-submit" type="submit">
           Go
