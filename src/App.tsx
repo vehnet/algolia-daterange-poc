@@ -7,7 +7,7 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
-      <strong>Results ({hits.results?.nbHits} items found):</strong>
+      <strong>Results ({hits.results?.nbHits} items):</strong>
 
       <div className="results">
         {hits.hits.map(row =>
