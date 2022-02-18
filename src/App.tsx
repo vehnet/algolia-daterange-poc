@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
       <section>
         <strong>Search:</strong>
-        <input className="search-input" onChange={(e) => refine(e.target.value)} />
+        <input className="search-input" onChange={e => refine(e.target.value)} />
       </section>
 
       <section>
