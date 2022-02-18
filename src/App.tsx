@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <div className="container">
       <section>
         <strong>Filters:</strong>
-        <AlgoliaDateRange attribute="created_at_i" />
+        <AlgoliaDateRange attribute="date" />
       </section>
 
       <section>
