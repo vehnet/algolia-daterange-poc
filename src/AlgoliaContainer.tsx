@@ -3,11 +3,11 @@ import React from 'react';
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch } from "react-instantsearch-hooks";
 
-const indexName = "concert_events_instantsearchjs";
+const indexName = "Item_production";
 
 const searchClient = algoliasearch(
-  "latency",
-  "059c79ddd276568e990286944276464a"
+  "UJ5WYC0L7X",
+  "8ece23f8eb07cd25d40262a1764599b1"
 );
 
 type Props = {};
