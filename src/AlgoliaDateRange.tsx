@@ -44,8 +44,8 @@ export const AlgoliaDateRange = (props: AlgoliaDateRangeProps) => {
     >
       <form
         className="ais-RangeInput-form"
-        onSubmit={(event) => {
-          event.preventDefault();
+        onSubmit={e => {
+          e.preventDefault();
           refine([from, to]);
         }}
       >
@@ -53,14 +53,14 @@ export const AlgoliaDateRange = (props: AlgoliaDateRangeProps) => {
           label={""}
           value={new Date(from)}
           disabled={!canRefine}
-          onSelectDate={(event) => setRange({ from: event.valueOf(), to })}
+          onSelectDate={e => setRange({ from: e.valueOf(), to })}
         />
         <span className="ais-RangeInput-separator"> - </span>
         <DatePicker
           label={""}
           value={new Date(to)}
           disabled={!canRefine}
-          onSelectDate={(event) => setRange({ from, to: event.valueOf() })}
+          onSelectDate={e => setRange({ from, to: e.valueOf() })}
         />
         <button className="ais-RangeInput-submit" type="submit">
           Go
