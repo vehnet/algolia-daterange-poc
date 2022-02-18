@@ -10,28 +10,29 @@ const cx = (
   ...classNames: Array<string | number | boolean | undefined | null>
 ) => classNames.filter(Boolean).join(" ");
 
-const MIN_TIMESTAMP = 1588284000;
-const MAX_TIMESTAMP = 1590876000;
-  
 export const AlgoliaDateRange = (props: AlgoliaDateRangeProps) => {
-  const {
-    canRefine,
-    refine
-  } = useRange(props);
-
+  const state = useRange(props);
+  const { range, start, canRefine, refine } = state;
+  console.log(state);
   const values = {
-    min: props.min,
-    max: props.max
+    min:
+      start[0] !== -Infinity && start[0] !== range.min ? start[0] : undefined,
+    max: start[1] !== Infinity && start[1] !== range.max ? start[1] : undefined
   };
 
   const [{ from, to }, setRange] = useState({
-    from: values.min,
-    to: values.max
+    from: range.min,
+    to: range.max
   });
 
+  console.log("f", { from, to }, values);
+
   useEffect(() => {
-    setRange({ from: values.min || MIN_TIMESTAMP, to: values.max || MAX_TIMESTAMP});
-  }, [values.min, values.max]);
+    setRange({
+      from: range.min,
+      to: range.max
+    });
+  }, [range.min, range.max]);
 
   return (
     <div
@@ -43,23 +44,23 @@ export const AlgoliaDateRange = (props: AlgoliaDateRangeProps) => {
     >
       <form
         className="ais-RangeInput-form"
-        onSubmit={event => {
+        onSubmit={(event) => {
           event.preventDefault();
           refine([from, to]);
         }}
       >
         <DatePicker
           label={""}
-          value={new Date(from * 1000)}
+          value={new Date(from)}
           disabled={!canRefine}
-          onSelectDate={event => setRange({ from: event.valueOf() / 1000, to })}
+          onSelectDate={(event) => setRange({ from: event.valueOf(), to })}
         />
         <span className="ais-RangeInput-separator"> - </span>
         <DatePicker
           label={""}
-          value={new Date(to * 1000)}
+          value={new Date(to)}
           disabled={!canRefine}
-          onSelectDate={event => setRange({ from, to: event.valueOf() / 1000 })}
+          onSelectDate={(event) => setRange({ from, to: event.valueOf() })}
         />
         <button className="ais-RangeInput-submit" type="submit">
           Go
