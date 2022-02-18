@@ -22,9 +22,12 @@ const App: React.FC = () => {
       <section>
         <strong>Results ({hits.results?.nbHits} items):</strong>
         <div className="results">
-          {hits.hits.map(row =>
-            <div className="row">{row.title}, {row.author}. <strong>Created at:</strong> {row.created_at} ({row.created_at_i})</div>
-          )}
+        {hits.hits.map((row) => (
+            <div className="row">
+              {row.name}, {row.location}. <strong>Created at:</strong>{" "}
+              {new Date(row.date).toDateString()} ({row.date})
+            </div>
+          ))}
         </div>
       </section>
     </div>
